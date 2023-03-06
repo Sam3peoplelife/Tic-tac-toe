@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    <h1>Tic-Tac-Toe</h1>
+    <form action="{{ url_for('start_game') }}" method="POST">
+      <label for="side">Choose your side:</label>
+      <select id="side" name="side">
+        <option value="X">X</option>
+        <option value="O">O</option>
+      </select>
+      <br>
+      <button type="submit">Start Game</button>
+    </form>
+  </body>
+</html>

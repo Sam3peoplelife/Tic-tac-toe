@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <style>
+      .cell {
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Tic-Tac-Toe</h1>
+      <table>
+        {% for i in range(3) %}
+        <tr>
+          {% for j in range(3) %}
+          <td>
+            <form action="/move" method="post">
+              <button class="cell" type="submit" name="cell" value="{{ 3*i+j }}" {% if board[3*i+j] %}disabled{% endif %}>{{ board[3*i+j] }}</button>
+            </form>
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+      {% if game_over %}
+      <h2>{% if winner %}{{ winner }} wins!{% else %}It's a tie!{% endif %}</h2>
+      <form action="/" method="get">
+        <button type="submit">Play Again</button>
+      </form>
+      {% else %}
+      <h2>Current player: {{ current_player }}</h2>
+      {% endif %}
+    </center>
+  </body>
+</html>
+
+
